@@ -1,6 +1,6 @@
-name: cinnamon-desktop
-summary:  Cinnamon Desktop Environment.
-description: a Linux desktop which provides advanced innovative features and a traditional user experience. 
+name: xfce4-desktop
+summary:  XFCE Desktop Environment.
+description: a lightweight desktop environment for UNIX-like operating systems. 
   
 adopt-info: devmode # use 'strict' once you have the right plugs and slots
 
@@ -29,7 +29,7 @@ plugs:
     default-provider: gtk-common-themes
 
 apps:
-  cinnamon-desktop:
+  xfce4-desktop:
     command: bash
     plugs:
        - desktop
@@ -54,9 +54,9 @@ parts:
       - CMAKE_INCLUDE_PATH: $CMAKE_INCLUDE_PATH:$SNAPCRAFT_STAGE/include:$SNAPCRAFT_STAGE/usr/include
       - CMAKE_LIBRARY_PATH: $CMAKE_LIBRARY_PATH:$SNAPCRAFT_STAGE/lib:$SNAPCRAFT_STAGE/usr/lib:$SNAPCRAFT_STAGE/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
  
- cinnamon-desktop:
+ xfce4-desktop:
     plugin: 
-    source: https://github.com/linuxmint/Cinnamon.git
+    source: https://git.xfce.org/xfce/xfdesktop
     source-type: git
     override-pull: |
       snapcraftctl pull
