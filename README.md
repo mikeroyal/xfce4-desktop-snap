@@ -1,10 +1,10 @@
 <h1 align="center">
-  <img src="https://user-images.githubusercontent.com/45159366/52699255-31136f80-2f2a-11e9-865c-75d7ee219cef.png">
+  <img src="https://user-images.githubusercontent.com/45159366/52910555-f3765580-324d-11e9-8597-99e6f3241701.png">
   <br />
-  Cinnamon Desktop
+  XFCE Desktop
 </h1>
 
-<p align="center"><b>This is the snap for Cinnamon Desktop, a Linux desktop which provides advanced innovative features and a traditional user experience. It works on Ubuntu, Fedora, Debian, and other major Linux distributions. </p>
+<p align="center"><b>This is the snap for XFCE Desktop, a Linux desktop which provides advanced innovative features and a traditional user experience. It works on Ubuntu, Fedora, Debian, and other major Linux distributions. </p>
 
 <!-- Uncomment and modify this when you are provided a build status badge
 <p align="center">
@@ -12,13 +12,13 @@
 </p>
 -->
 
-![my-snap-name](https://user-images.githubusercontent.com/45159366/52699258-3375c980-2f2a-11e9-8e7d-a2184a1ba9f5.jpeg?raw=true "my-snap-name")
+![my-snap-name](https://user-images.githubusercontent.com/45159366/52910530-9a0e2680-324d-11e9-8e55-a7450c7fc316.png?raw=true "my-snap-name")
 
 <p align="center">Published for <img src="https://raw.githubusercontent.com/anythingcodes/slack-emoji-for-techies/gh-pages/emoji/tux.png" align="top" width="24" /> with 💝 by Snapcrafters</p>
 
 ## Install
 
-    sudo snap install --edge --devmode cinnamon-desktop
+    sudo snap install --edge --devmode xfce4-desktop
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
