@@ -4,7 +4,7 @@
   XFCE Desktop
 </h1>
 
-<p align="center"><b>This is the snap for XFCE Desktop, a lightweight desktop environment for UNIX-like operating systems. It works on Ubuntu, Fedora, Debian, and other major Linux distributions. </p>
+This is the snap for[XFCE Desktop](https://xfce.org/), a lightweight desktop environment for UNIX-like operating systems. It works on Ubuntu, Fedora, Debian, and other major Linux distributions. 
 
 <!-- Uncomment and modify this when you are provided a build status badge
 <p align="center">
