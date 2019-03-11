@@ -1,5 +1,6 @@
 name: xfce4-desktop
-summary:  XFCE Desktop Environment.
+version: 4.12
+summary: XFCE Desktop Environment.
 description: a lightweight desktop environment for UNIX-like operating systems. 
   
 adopt-info: devmode # use 'strict' once you have the right plugs and slots
