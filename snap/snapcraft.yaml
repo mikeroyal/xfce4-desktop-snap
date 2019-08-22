@@ -1,21 +1,17 @@
 name: xfce4-desktop
-version: 4.12
+version: 4.14
 summary: XFCE Desktop Environment.
 description: a lightweight desktop environment for UNIX-like operating systems. 
   
-adopt-info: devmode # use 'strict' once you have the right plugs and slots
 
 grade: stable
 confinement: devmode
+base: core18
 
 architectures:
   - build-on: amd64
   
 plugs:
-  gnome-3-28-1804:
-    interface: content
-    target: $SNAP/gnome-platform
-    default-provider: gnome-3-28-1804
   gtk-3-themes:
     interface: content
     target: $SNAP/data-dir/themes
