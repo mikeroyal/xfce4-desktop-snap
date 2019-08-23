@@ -33,6 +33,7 @@ apps:
       #      - desktop-legacy
       #      - gsettings
       - network
+      - removable-media
       - x11
       
 parts:
@@ -70,6 +71,7 @@ parts:
     build-packages:
       - git
       - sed
+      
 gtk:
     after: [glib, cairo, epoxy, pango, gobject-introspection, gdk-pixbuf, json-glib, atk, at-spi2-atk]
     source: https://gitlab.gnome.org/GNOME/gtk.git
@@ -93,6 +95,7 @@ gtk:
         sed -i 's#libdir=#libdir=$SNAPCRAFT_STAGE#' $DST
         sed -i 's#includedir=#includedir=$SNAPCRAFT_STAGE#' $DST
       done
+      
     build-packages:
       - libtool
       - gtk-doc-tools
@@ -138,6 +141,7 @@ gtk:
       cp $SRC $DST
       sed -i 's#libdir=#libdir=$SNAPCRAFT_STAGE#' $DST
       sed -i 's#includedir=#includedir=$SNAPCRAFT_STAGE#' $DST
+      
     build-packages:
       - libdbus-1-dev
       - libxkbcommon-x11-dev
@@ -147,7 +151,6 @@ gtk:
   at-spi2-atk:
     after: [glib, at-spi2-core, atk]
     source: https://gitlab.gnome.org/GNOME/at-spi2-atk.git
-    source-branch: gnome-3-26 # there is no gnome-3-28 branch yet
     plugin: meson
     meson-parameters: [ --prefix=/usr ]
     build-environment: *buildenv
@@ -162,6 +165,7 @@ gtk:
       cp $SRC $DST
       sed -i 's#libdir=#libdir=$SNAPCRAFT_STAGE#' $DST
       sed -i 's#includedir=#includedir=$SNAPCRAFT_STAGE#' $DST
+      
     build-packages:
       - libdbus-1-dev
       - libdbus-glib-1-dev
@@ -171,7 +175,6 @@ gtk:
   atk:
     after: [glib]
     source: https://gitlab.gnome.org/GNOME/atk.git
-    source-branch: gnome-3-28
     plugin: autotools
     configflags: [ --prefix=/usr ]
     build-environment: *buildenv
@@ -202,6 +205,7 @@ gtk:
     plugin: meson
     meson-parameters: [ --prefix=/usr ]
     build-environment: *buildenv
+    
     build-packages:
       - libfreetype6-dev
       - libfontconfig1-dev
@@ -211,6 +215,7 @@ gtk:
       - libxt-dev
       - libfribidi-dev
       - libthai-dev
+      
     override-build: |
       set -eux
       snapcraftctl build
@@ -242,6 +247,7 @@ gtk:
       - libicu-dev
       - libgraphite2-dev
       - ragel
+      
     override-build: |
       set -eux
       snapcraftctl build
@@ -272,6 +278,7 @@ gtk:
       cp $SRC $DST
       sed -i 's#libdir=#libdir=$SNAPCRAFT_STAGE#' $DST
       sed -i 's#includedir=#includedir=$SNAPCRAFT_STAGE#' $DST
+      
     build-packages:
       - libx11-dev
       - libpng-dev
@@ -281,7 +288,6 @@ gtk:
   gobject-introspection:
     after: [glib, cairo]
     source: https://gitlab.gnome.org/GNOME/gobject-introspection.git
-    #source-branch: gnome-3-28
     plugin: autotools
     configflags: [ --prefix=/usr, --with-python=python3 ]
     build-environment: *buildenv
@@ -300,6 +306,7 @@ gtk:
       DST=$PKGCONFIG_BUILD/$PC
       cp $SRC $DST
       sed -i 's#^prefix=#prefix=$SNAPCRAFT_STAGE#' $DST
+      
     build-packages:
       - python3-dev
       - libffi-dev
@@ -324,6 +331,7 @@ gtk:
       - --enable-perf-utils
       - --disable-silent-rules
       - --disable-maintainer-mode
+      
     build-environment: *buildenv
     override-build: |
       set -eux
@@ -339,6 +347,7 @@ gtk:
         sed -i 's#libdir=#libdir=$SNAPCRAFT_STAGE#' $DST
         sed -i 's#includedir=#includedir=$SNAPCRAFT_STAGE#' $DST
       done
+      
     build-packages:
       - libfontconfig1-dev
       - libfreetype6-dev
@@ -373,6 +382,7 @@ gtk:
       cp $SRC $DST
       sed -i 's#libdir=#libdir=$SNAPCRAFT_STAGE#' $DST
       sed -i 's#includedir=#includedir=$SNAPCRAFT_STAGE#' $DST
+      
     build-packages:
       - xutils-dev
       - libx11-dev
@@ -396,21 +406,11 @@ gtk:
       cp $SRC $DST
       sed -i 's#libdir=#libdir=$SNAPCRAFT_STAGE#' $DST
       sed -i 's#includedir=#includedir=$SNAPCRAFT_STAGE#' $DST
+      
     build-packages:
       - automake
       - autoconf
       - autotools-dev
       - libtool
       - libmount-dev
-
-  desktop-gnome-platform:
-    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
-    source-subdir: gtk
-    plugin: make
-    make-parameters: ["FLAVOR=gtk3"]
-    build-packages:
-      - build-essential
-      - libgtk-3-dev
-    override-build: |
-      snapcraftctl build
-      mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
+      
